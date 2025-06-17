@@ -2,27 +2,40 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/app/main.py",
+      "src": "detactai/backend/app/main.py",  // Adjusted path to match your repo
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "50mb",
-        "includeFiles": ["backend/app/models/**"]
+        "includeFiles": [
+          "detactai/backend/app/models/yolov8n.pt",
+          "detactai/backend/app/requirements.txt"
+        ]
       }
+    },
+    {
+      "src": "detactai/frontend/src/**", 
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    // API Routes
     {
       "src": "/api/(.*)",
-      "dest": "backend/app/main.py"
+      "dest": "detactai/backend/app/main.py"
     },
     {
       "src": "/temp/(.*)",
-      "dest": "backend/app/main.py"
+      "dest": "detactai/backend/app/main.py"
     },
+    // Frontend Route
     {
       "src": "/(.*)",
-      "dest": "frontend/src/index.html",
-      "continue": true
+      "dest": "detactai/frontend/src/index.html"
+    },
+    // Fallback for Vercel's weird behavior
+    {
+      "src": "/detactai/(.*)",
+      "status": 404
     }
   ]
 }
