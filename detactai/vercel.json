@@ -6,12 +6,13 @@
       "use": "@vercel/python",
       "config": { 
         "maxLambdaSize": "50mb",
-        "includeFiles": ["app/models/**"]
+        "includeFiles": ["app/models/yolov8n.pt"]
       }
     }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "backend/app/main.py" },
-    { "src": "/temp/(.*)", "dest": "backend/app/main.py" }
+    { "src": "/temp/(.*)", "dest": "backend/app/main.py" },
+    { "src": "/(.*)", "dest": "frontend/src/index.html" }
   ]
 }
