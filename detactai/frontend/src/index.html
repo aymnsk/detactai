@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DetectAI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Object Detection</h1>
+    
+    <div class="upload-box">
+      <input type="file" id="imageUpload" accept="image/*">
+      <button onclick="processImage()">Detect Objects</button>
+    </div>
+
+    <div class="results">
+      <h2>Results</h2>
+      <div id="detectionResults"></div>
+      <img id="outputImage" style="display: none; max-width: 100%;">
+    </div>
+
+    <div class="api-status">
+      <p>Backend Status: <span id="apiStatus">Checking...</span></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
