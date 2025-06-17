@@ -1,6 +1,6 @@
 // Backend API Base URL (Update with your Vercel URL)
 const API_BASE_URL = window.location.hostname.includes('vercel.app') 
-  ? 'https://your-vercel-app.vercel.app/api' 
+  ? 'https://detactai.vercel.app/api' 
   : 'http://localhost:8000/api';
 
 // Check backend connection
